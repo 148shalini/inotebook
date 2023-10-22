@@ -1,24 +1,42 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
+// npm i react-router-dom concurrently ==we can run diff surver
+//  cd .\backend\
+// nodemon .\index.js
+// npm run both front m
 import './App.css';
+import Home from './component.js/Home';
+import Navbar from './component.js/Navbar';
+import About from './component.js/About';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  
+} from "react-router-dom";
+import NoteState from './context/notes/NoteState';
+import Alert from './component.js/Alert';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <NoteState>
+    <Router>
+   < Navbar/>
+   <Alert message="This is amazing react course"/>
+     {/* <Home/> */}
+     {/* <About/>  */}
+     <div className="container">
+
+    
+
+     <Routes>
+          <Route exact path="/home" element={<Home/> }  > </Route>
+          <Route exact path="/about" element={<About/> }> </Route>
+        </Routes>
+        </div>
+            </Router>
+            </NoteState>
+    </>
   );
 }
 
